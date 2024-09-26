@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private GameObject projectilePrefab;
+    [SerializeField] private Transform firePoint;
 
     // Start is called before the first frame update
     void Start()
@@ -41,11 +43,31 @@ public class PlayerMovement : MonoBehaviour
         {
             Jump();
         }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            Shoot();
+        }
     }
 
     // for player to jump
     void Jump()
     {
         rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+    }
+    
+    void Shoot()
+    {
+        // Instantiate a projectile at the fire point
+        Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
+    }
+    
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        // check if the player collides with an obstacle
+        if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            // handle collision with obstacle (e.g., end game, reduce health, etc.)
+            Debug.Log("Collided with obstacle!");
+        }
     }
 }
