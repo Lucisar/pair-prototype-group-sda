@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,11 +22,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private Transform firePoint;
 
+    [SerializeField] private GameObject levelCompletePanel;
     // Start is called before the first frame update
     void Start()
     {
         // get the Rigidbody2D component for the player
         rb = GetComponent<Rigidbody2D>();
+        levelCompletePanel.SetActive(false);
     }
 
     void FixedUpdate()
@@ -77,15 +80,26 @@ public class PlayerMovement : MonoBehaviour
             // handle collision with obstacle (e.g., end game, reduce health, etc.)
             Debug.Log("Collided with obstacle!");
         }
-
-        if (collision.gameObject.CompareTag("GravityPlatform"))
-        {
-            FlipGravity();
-
-        }
+        
         if (collision.gameObject.CompareTag("EndGoal"))
         {
             LevelComplete();
+        }
+        
+        if (collision.gameObject.CompareTag("spikes"))
+        {
+            //restart the game
+            Debug.Log("Collided with spikes!");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("GravityPlatform"))
+        {
+            FlipGravity();
         }
     }
 
@@ -106,6 +120,20 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log("Level Complete!");
         // make sure to add scene in File->Build Settings->Add Open Scenes when in
         // in the new scene you want to add 
+        //pause the game
+        Time.timeScale = 0;
+        levelCompletePanel.SetActive(true);
+    }
+    public void OnLevelCompleteButtonClicked()
+    {
+        // 加载新场景
         SceneManager.LoadScene("BT_Prototype");
+        Time.timeScale = 1;
+    }
+    
+    public void OnQuitButtonClicked()
+    {
+        // 退出游戏
+        Application.Quit();
     }
 }
