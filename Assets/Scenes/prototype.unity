@@ -152,7 +152,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaclePrefab: {fileID: 3133764374161746077, guid: 704701d403fe6de4ab4461b082eb344a, type: 3}
-  spawnInterval: 1
+  spawnInterval: 0.8
+  playerTransform: {fileID: 977736793}
 --- !u!4 &280390111
 Transform:
   m_ObjectHideFlags: 0
@@ -983,10 +984,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 516146258}
     m_Modifications:
-    - target: {fileID: 1919511582681115861, guid: 704701d403fe6de4ab4461b082eb344a, type: 3}
-      propertyPath: moveSpeed
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 2668736998685524078, guid: 704701d403fe6de4ab4461b082eb344a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.46
@@ -1029,10 +1026,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3133764374161746077, guid: 704701d403fe6de4ab4461b082eb344a, type: 3}
       propertyPath: m_Name
-      value: Obstacle
-      objectReference: {fileID: 0}
-    - target: {fileID: 3133764374161746077, guid: 704701d403fe6de4ab4461b082eb344a, type: 3}
-      propertyPath: m_TagString
       value: Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []

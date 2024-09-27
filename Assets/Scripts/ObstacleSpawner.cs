@@ -8,6 +8,7 @@ public class ObstacleSpawner : MonoBehaviour
     [SerializeField] private GameObject obstaclePrefab;
     // spawn interval
     [SerializeField] private float spawnInterval;
+    [SerializeField] private Transform playerTransform;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +24,7 @@ public class ObstacleSpawner : MonoBehaviour
         {
             // spawn an obstacle at a random y position
             float randomY = Random.Range(-3f, 3f);
-            Instantiate(obstaclePrefab, new Vector3(10f, randomY, 0f), Quaternion.identity);
+            Instantiate(obstaclePrefab, new Vector3(playerTransform.position.x+10f, randomY, 0f), Quaternion.identity);
 
             // wait for the next spawn
             yield return new WaitForSeconds(spawnInterval);
