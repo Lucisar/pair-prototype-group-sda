@@ -7,11 +7,13 @@ public class PlayerMovement : MonoBehaviour
     // speed
     private float moveSpeed = 7f;
     // jump
-    private float jumpForce = 8f;
+    private float jumpForce = 13f;
     // ground check
     private bool isGrounded;
+    // track gravity state
+    private bool isFlipped = false;
     // [SerializeField] = When Unity serializes your scripts, it only serializes public fields
-    // Force Unity to serialize a private field..
+    // Force Unity to serialize a private field...
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private Rigidbody2D rb;
@@ -32,17 +34,18 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     { 
 
         // check if player touching ground via 'GroundCheck'
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
 
-        // jump when the space pressed AND the player is grounded
+        // jump when the 'space' pressed AND the player is grounded (no double jumping)
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             Jump();
         }
+        // shoot when 's' key pressed
         if (Input.GetKeyDown(KeyCode.S))
         {
             Shoot();
@@ -52,7 +55,10 @@ public class PlayerMovement : MonoBehaviour
     // for player to jump
     void Jump()
     {
-        rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        // determine the jump direction based on FlipGravity Funct below
+        float jumpDirection = isFlipped ? -jumpForce : jumpForce;
+        // finish jump direction for player
+        rb.velocity = new Vector2(rb.velocity.x, jumpDirection);
     }
     
     void Shoot()
@@ -63,11 +69,39 @@ public class PlayerMovement : MonoBehaviour
     
     void OnCollisionEnter2D(Collision2D collision)
     {
-        // check if the player collides with an obstacle
+        // OnCollisionEnter2 = Sent when an incoming collider makes contact with this object's collider
+        
         if (collision.gameObject.CompareTag("Obstacle"))
         {
             // handle collision with obstacle (e.g., end game, reduce health, etc.)
             Debug.Log("Collided with obstacle!");
         }
+
+        if (collision.gameObject.CompareTag("GravityPlatform"))
+        {
+            FlipGravity();
+
+        }
+        if (collision.gameObject.CompareTag("EndGoal"))
+        {
+            LevelComplete();
+        }
+    }
+
+    // flip gravity of player based wehn colliding with platform 
+    void FlipGravity()
+    {
+        // change bool of gravity on/off
+        isFlipped = !isFlipped;
+        // reverse direction 
+        rb.gravityScale *= -1;
+        // flip player
+        transform.Rotate(180f, 0f, 0f);
+    }
+
+    // detect level completed
+    void LevelComplete()
+    {
+        Debug.Log("Level Complete!");
     }
 }
