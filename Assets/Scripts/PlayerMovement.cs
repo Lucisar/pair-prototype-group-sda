@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -103,5 +104,8 @@ public class PlayerMovement : MonoBehaviour
     void LevelComplete()
     {
         Debug.Log("Level Complete!");
+        // make sure to add scene in File->Build Settings->Add Open Scenes when in
+        // in the new scene you want to add 
+        SceneManager.LoadScene("BT_Prototype");
     }
 }
