@@ -7,7 +7,7 @@ public class ObstacleSpawner : MonoBehaviour
     // obstacle prefab
     [SerializeField] private GameObject obstaclePrefab;
     // spawn interval
-    [SerializeField] private float spawnInterval = 2f;
+    [SerializeField] private float spawnInterval;
 
     // Start is called before the first frame update
     void Start()

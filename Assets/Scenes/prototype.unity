@@ -574,7 +574,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 979955d43a893ed4393957067bb5cf06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeLeft: 5
+  timeLeft: 15
   timerText: {fileID: 1600711502}
 --- !u!114 &1600711502
 MonoBehaviour:
@@ -807,8 +807,8 @@ Transform:
   m_GameObject: {fileID: 1734288434}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -4.41, z: 0}
-  m_LocalScale: {x: 26.97, y: 1, z: 1}
+  m_LocalPosition: {x: 35, y: -4.41, z: 0}
+  m_LocalScale: {x: 120, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 516146258}
@@ -966,6 +966,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5130912682286674835, guid: 9da9116af9c58174a87c16ab2395d9b6, type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -979,6 +983,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 516146258}
     m_Modifications:
+    - target: {fileID: 1919511582681115861, guid: 704701d403fe6de4ab4461b082eb344a, type: 3}
+      propertyPath: moveSpeed
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 2668736998685524078, guid: 704701d403fe6de4ab4461b082eb344a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.46
