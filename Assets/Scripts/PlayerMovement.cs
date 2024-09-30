@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private Transform firePoint;
+    [SerializeField] private GameObject brickProjPrefab;
 
     [SerializeField] private GameObject levelCompletePanel;
     // Start is called before the first frame update
@@ -49,10 +50,16 @@ public class PlayerMovement : MonoBehaviour
         {
             Jump();
         }
-        // shoot when 's' key pressed
-        if (Input.GetKeyDown(KeyCode.S))
+        // shoot when 'D' key pressed
+        if (Input.GetKeyDown(KeyCode.D))
         {
             Shoot();
+        }
+
+        if (Input.GetKeyDown(KeyCode.B) && BrickText.numBricks > 0)
+        {
+            --BrickText.numBricks;
+            Build();
         }
     }
 
@@ -93,6 +100,11 @@ public class PlayerMovement : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             
         }
+    }
+
+    void Build()
+    {
+        Instantiate(brickProjPrefab, firePoint.position, firePoint.rotation);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

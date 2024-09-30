@@ -5,7 +5,7 @@ using System.Numerics;
 using UnityEngine;
 using Vector2 = UnityEngine.Vector2;
 
-public class Projectile : MonoBehaviour
+public class BrickProjectile : MonoBehaviour
 {
     private float speed = 20f;
     private Rigidbody2D rb;
@@ -28,6 +28,7 @@ public class Projectile : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -35,9 +36,6 @@ public class Projectile : MonoBehaviour
         // Check if the projectile collides with an obstacle
         if (collision.gameObject.CompareTag("Obstacle"))
         {
-            ++BrickText.numBricks;
-            // Destroy both the projectile and the obstacle
-            Destroy(collision.gameObject);
             Destroy(gameObject);
         }
     }

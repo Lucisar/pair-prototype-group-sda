@@ -56,5 +56,6 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "pair-prototype-group-sda.sln"
+    "dotnet.defaultSolution": "pair-prototype-group-sda.sln",
+    "dotnet.preferCSharpExtension": true
 }

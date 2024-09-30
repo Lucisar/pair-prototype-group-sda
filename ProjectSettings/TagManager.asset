@@ -8,6 +8,7 @@ TagManager:
   - GravityPlatform
   - EndGoal
   - spikes
+  - bricks
   layers:
   - Default
   - TransparentFX
