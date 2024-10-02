@@ -10,6 +10,7 @@ public class BrickProjectile : MonoBehaviour
     private Vector3 mousePos;
     private Transform playerPos;
 
+    // random comment
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
