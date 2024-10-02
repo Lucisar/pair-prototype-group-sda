@@ -1,29 +1,30 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Numerics;
 using UnityEngine;
-using Vector2 = UnityEngine.Vector2;
+
 
 public class Projectile : MonoBehaviour
 {
     private float speed = 20f;
     private Rigidbody2D rb;
+    private Vector3 mousePos;
     private Transform playerPos;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.velocity = Vector2.right * speed;
         playerPos = GameObject.FindGameObjectWithTag("Player").transform;
+        // aiming w/ mouse
+        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        // get intended direction & velocity of projectile regardless of how close/far mouse is
+        Vector3 direction = mousePos - transform.position;
+        Vector3 rotation = transform.position - mousePos;
+        rb.velocity = new Vector2(direction.x, direction.y).normalized * speed;
     }
 
     void Update()
     {
-        // Move the projectile to the right
-        transform.Translate(Vector2.right * speed * Time.deltaTime);
-
-        // Destroy the projectile if it becomes too far away from player
+        // Destroy the projectile if it becomes too far away from the player
         if (transform.position.x - playerPos.position.x > 10.0f)
         {
             gameObject.SetActive(false);

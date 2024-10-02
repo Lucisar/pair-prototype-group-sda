@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     // speed
     private float moveSpeed = 7f;
     // jump
-    private float jumpForce = 13f;
+    private float jumpForce = 17f;
     // ground check
     private bool isGrounded;
     // track gravity state
@@ -19,11 +19,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private GameObject projectilePrefab;
-    [SerializeField] private Transform firePoint;
-    [SerializeField] private GameObject brickProjPrefab;
-
     [SerializeField] private GameObject levelCompletePanel;
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,7 +39,6 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     { 
-
         // check if player touching ground via 'GroundCheck'
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
 
@@ -49,17 +46,6 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             Jump();
-        }
-        // shoot when 'D' key pressed
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            Shoot();
-        }
-
-        if (Input.GetKeyDown(KeyCode.B) && BrickText.numBricks > 0)
-        {
-            --BrickText.numBricks;
-            Build();
         }
     }
 
@@ -70,12 +56,6 @@ public class PlayerMovement : MonoBehaviour
         float jumpDirection = isFlipped ? -jumpForce : jumpForce;
         // finish jump direction for player
         rb.velocity = new Vector2(rb.velocity.x, jumpDirection);
-    }
-    
-    void Shoot()
-    {
-        // Instantiate a projectile at the fire point
-        Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
     }
     
     void OnCollisionEnter2D(Collision2D collision)
@@ -100,11 +80,6 @@ public class PlayerMovement : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             
         }
-    }
-
-    void Build()
-    {
-        Instantiate(brickProjPrefab, firePoint.position, firePoint.rotation);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

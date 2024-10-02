@@ -5,6 +5,7 @@ using UnityEngine;
 public class BuildBrick : MonoBehaviour
 {
     [SerializeField] GameObject realBrick;
+    
     // Start is called before the first frame update
     void Start()
     {
