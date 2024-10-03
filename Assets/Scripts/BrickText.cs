@@ -10,8 +10,8 @@ public class BrickText : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        numBricks = 0;
-        brickText.text = "Bricks: 0";
+        numBricks = 3;
+        brickText.text = "Bricks: "+numBricks;
     }
 
     // Update is called once per frame

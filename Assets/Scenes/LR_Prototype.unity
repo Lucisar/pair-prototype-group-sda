@@ -388,6 +388,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &48708863
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 48708865}
+  - component: {fileID: 48708864}
+  m_Layer: 0
+  m_Name: UI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &48708864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 48708863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e5c8c7e7a80504792caaceb5e93d26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelCompletePanel: {fileID: 624804979}
+--- !u!4 &48708865
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 48708863}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 110.78766, y: -2.45759, z: -0.04093892}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &58423473 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6139897569788532749, guid: 53b7d928bb76d0a4e8c248713842c35b, type: 3}
@@ -2738,10 +2783,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Brick (3)
       objectReference: {fileID: 0}
-    - target: {fileID: 4125002671205613832, guid: 53b7d928bb76d0a4e8c248713842c35b, type: 3}
-      propertyPath: m_TagString
-      value: RealBricks
-      objectReference: {fileID: 0}
     - target: {fileID: 6139897569788532749, guid: 53b7d928bb76d0a4e8c248713842c35b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 54.91
@@ -2828,8 +2869,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  rb: {fileID: 977736790}
-  levelCompletePanel: {fileID: 624804979}
+  _uiManager: {fileID: 48708864}
 --- !u!50 &977736790
 Rigidbody2D:
   serializedVersion: 4
@@ -3741,10 +3781,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Brick (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 4125002671205613832, guid: 53b7d928bb76d0a4e8c248713842c35b, type: 3}
-      propertyPath: m_TagString
-      value: RealBricks
-      objectReference: {fileID: 0}
     - target: {fileID: 6139897569788532749, guid: 53b7d928bb76d0a4e8c248713842c35b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 48.33
@@ -3984,10 +4020,6 @@ PrefabInstance:
     - target: {fileID: 3841820810966754033, guid: 53b7d928bb76d0a4e8c248713842c35b, type: 3}
       propertyPath: m_Name
       value: Brick (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4125002671205613832, guid: 53b7d928bb76d0a4e8c248713842c35b, type: 3}
-      propertyPath: m_TagString
-      value: RealBricks
       objectReference: {fileID: 0}
     - target: {fileID: 6139897569788532749, guid: 53b7d928bb76d0a4e8c248713842c35b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4563,10 +4595,6 @@ PrefabInstance:
     - target: {fileID: 3841820810966754033, guid: 53b7d928bb76d0a4e8c248713842c35b, type: 3}
       propertyPath: m_Name
       value: Brick (4)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4125002671205613832, guid: 53b7d928bb76d0a4e8c248713842c35b, type: 3}
-      propertyPath: m_TagString
-      value: RealBricks
       objectReference: {fileID: 0}
     - target: {fileID: 6139897569788532749, guid: 53b7d928bb76d0a4e8c248713842c35b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5684,10 +5712,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Brick
       objectReference: {fileID: 0}
-    - target: {fileID: 4125002671205613832, guid: 53b7d928bb76d0a4e8c248713842c35b, type: 3}
-      propertyPath: m_TagString
-      value: RealBricks
-      objectReference: {fileID: 0}
     - target: {fileID: 6139897569788532749, guid: 53b7d928bb76d0a4e8c248713842c35b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 111.54
@@ -6005,3 +6029,4 @@ SceneRoots:
   - {fileID: 1622656471}
   - {fileID: 280390111}
   - {fileID: 222512859}
+  - {fileID: 48708865}

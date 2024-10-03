@@ -14,12 +14,14 @@ public class PlayerMovement : MonoBehaviour
     private bool isGrounded;
     // track gravity state
     private bool isFlipped = false;
+    private Rigidbody2D rb;
+    private float minY = -10f;
     // [SerializeField] = When Unity serializes your scripts, it only serializes public fields
     // Force Unity to serialize a private field...
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
-    [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private GameObject levelCompletePanel;
+    
+    [SerializeField] private UIManager _uiManager;
     
 
     // Start is called before the first frame update
@@ -27,7 +29,6 @@ public class PlayerMovement : MonoBehaviour
     {
         // get the Rigidbody2D component for the player
         rb = GetComponent<Rigidbody2D>();
-        levelCompletePanel.SetActive(false);
     }
 
     void FixedUpdate()
@@ -35,9 +36,9 @@ public class PlayerMovement : MonoBehaviour
         // so player moves constantly to right 
         rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
     }
-
+    
     // Update is called once per frame
-    void LateUpdate()
+    void Update()
     { 
         // check if player touching ground via 'GroundCheck'
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
@@ -46,6 +47,11 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             Jump();
+        }
+        if (transform.position.y < minY)
+        {
+            //restart the game
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 
@@ -70,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
         
         if (collision.gameObject.CompareTag("EndGoal"))
         {
-            LevelComplete();
+            _uiManager.ShowLevelComplete();
         }
         
         if (collision.gameObject.CompareTag("spikes"))
@@ -99,28 +105,5 @@ public class PlayerMovement : MonoBehaviour
         rb.gravityScale *= -1;
         // flip player
         transform.Rotate(180f, 0f, 0f);
-    }
-
-    // detect level completed
-    void LevelComplete()
-    {
-        Debug.Log("Level Complete!");
-        // make sure to add scene in File->Build Settings->Add Open Scenes when in
-        // in the new scene you want to add 
-        //pause the game
-        Time.timeScale = 0;
-        levelCompletePanel.SetActive(true);
-    }
-    public void OnLevelCompleteButtonClicked()
-    {
-        // 加载新场景
-        SceneManager.LoadScene("BT_Prototype");
-        Time.timeScale = 1;
-    }
-    
-    public void OnQuitButtonClicked()
-    {
-        // 退出游戏
-        Application.Quit();
     }
 }

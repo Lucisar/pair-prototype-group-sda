@@ -45,7 +45,10 @@ public class Shooting : MonoBehaviour
     void Shoot()
     {
         // instantiate a projectile at the fire point
-        Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
+        GameObject bullet = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
+        Vector3 rotation = mousePos-transform.position;
+        float angle = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
+        bullet.transform.rotation = Quaternion.Euler(0,0,angle);
     }
     
     void Build()
