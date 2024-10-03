@@ -271,7 +271,7 @@ GameObject:
   - component: {fileID: 19930919}
   m_Layer: 6
   m_Name: Floor (3)
-  m_TagString: Untagged
+  m_TagString: platforms
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2176,7 +2176,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "'D' \ndestroy & collect"
+  m_text: "'W' \ndestroy & collect"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -2737,6 +2737,10 @@ PrefabInstance:
     - target: {fileID: 3841820810966754033, guid: 53b7d928bb76d0a4e8c248713842c35b, type: 3}
       propertyPath: m_Name
       value: Brick (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4125002671205613832, guid: 53b7d928bb76d0a4e8c248713842c35b, type: 3}
+      propertyPath: m_TagString
+      value: RealBricks
       objectReference: {fileID: 0}
     - target: {fileID: 6139897569788532749, guid: 53b7d928bb76d0a4e8c248713842c35b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3514,7 +3518,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "'B'\nuse bricks \nto build"
+  m_text: "'E'\nuse bricks \nto build"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -3737,6 +3741,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Brick (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4125002671205613832, guid: 53b7d928bb76d0a4e8c248713842c35b, type: 3}
+      propertyPath: m_TagString
+      value: RealBricks
+      objectReference: {fileID: 0}
     - target: {fileID: 6139897569788532749, guid: 53b7d928bb76d0a4e8c248713842c35b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 48.33
@@ -3848,7 +3856,7 @@ GameObject:
   - component: {fileID: 1502768686}
   m_Layer: 6
   m_Name: Floor (2)
-  m_TagString: Untagged
+  m_TagString: platforms
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3976,6 +3984,10 @@ PrefabInstance:
     - target: {fileID: 3841820810966754033, guid: 53b7d928bb76d0a4e8c248713842c35b, type: 3}
       propertyPath: m_Name
       value: Brick (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4125002671205613832, guid: 53b7d928bb76d0a4e8c248713842c35b, type: 3}
+      propertyPath: m_TagString
+      value: RealBricks
       objectReference: {fileID: 0}
     - target: {fileID: 6139897569788532749, guid: 53b7d928bb76d0a4e8c248713842c35b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4552,6 +4564,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Brick (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 4125002671205613832, guid: 53b7d928bb76d0a4e8c248713842c35b, type: 3}
+      propertyPath: m_TagString
+      value: RealBricks
+      objectReference: {fileID: 0}
     - target: {fileID: 6139897569788532749, guid: 53b7d928bb76d0a4e8c248713842c35b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 65.61
@@ -4615,7 +4631,7 @@ GameObject:
   - component: {fileID: 1851627419}
   m_Layer: 6
   m_Name: Floor (1)
-  m_TagString: Untagged
+  m_TagString: platforms
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5667,6 +5683,10 @@ PrefabInstance:
     - target: {fileID: 3841820810966754033, guid: 53b7d928bb76d0a4e8c248713842c35b, type: 3}
       propertyPath: m_Name
       value: Brick
+      objectReference: {fileID: 0}
+    - target: {fileID: 4125002671205613832, guid: 53b7d928bb76d0a4e8c248713842c35b, type: 3}
+      propertyPath: m_TagString
+      value: RealBricks
       objectReference: {fileID: 0}
     - target: {fileID: 6139897569788532749, guid: 53b7d928bb76d0a4e8c248713842c35b, type: 3}
       propertyPath: m_LocalPosition.x

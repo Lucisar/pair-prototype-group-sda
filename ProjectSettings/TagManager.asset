@@ -9,6 +9,8 @@ TagManager:
   - EndGoal
   - spikes
   - bricks
+  - platforms
+  - RealBricks
   layers:
   - Default
   - TransparentFX

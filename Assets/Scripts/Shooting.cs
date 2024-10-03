@@ -29,13 +29,13 @@ public class Shooting : MonoBehaviour
         transform.rotation = Quaternion.Euler(0,0,angle);
 
         
-        // shoot when 'D' key pressed
-        if (Input.GetKeyDown(KeyCode.D))
+        // shoot when 'W' key pressed
+        if (Input.GetKeyDown(KeyCode.W))
         {
             Shoot();
         }
-        // build when 'B' key is pressed
-        if (Input.GetKeyDown(KeyCode.B) && BrickText.numBricks > 0)
+        // build when 'E' key is pressed
+        if (Input.GetKeyDown(KeyCode.E) && BrickText.numBricks > 0)
         {
             --BrickText.numBricks;
             Build();

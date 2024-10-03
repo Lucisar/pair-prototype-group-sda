@@ -38,6 +38,12 @@ public class BrickProjectile : MonoBehaviour
         if (collision.gameObject.CompareTag("Obstacle"))
         {
             Destroy(gameObject);
+        } 
+        else if (collision.gameObject.CompareTag("platforms") 
+            || collision.gameObject.CompareTag("Player")
+            || collision.gameObject.CompareTag("RealBricks"))
+        {
+            Destroy(gameObject);
         }
     }
 }

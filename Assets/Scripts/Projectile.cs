@@ -40,6 +40,12 @@ public class Projectile : MonoBehaviour
             // Destroy both the projectile and the obstacle
             Destroy(collision.gameObject);
             Destroy(gameObject);
+        } 
+        else if (collision.gameObject.CompareTag("platforms")
+            || collision.gameObject.CompareTag("Player")
+            || collision.gameObject.CompareTag("RealBricks"))
+        {
+            Destroy(gameObject);
         }
     }
 }
