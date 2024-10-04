@@ -1018,7 +1018,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Next Level
+  m_text: Main Menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -1262,7 +1262,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &538592605
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1327,8 +1327,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 977736789}
-        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+      - m_Target: {fileID: 48708864}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: OnLevelCompleteButtonClicked
         m_Mode: 1
         m_Arguments:
@@ -4121,7 +4121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 979955d43a893ed4393957067bb5cf06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeLeft: 30
+  timeLeft: 35
   timerText: {fileID: 1600711502}
 --- !u!114 &1600711502
 MonoBehaviour:
