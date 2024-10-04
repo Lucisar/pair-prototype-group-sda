@@ -18,7 +18,6 @@ public class Projectile : MonoBehaviour
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         // get intended direction & velocity of projectile regardless of how close/far mouse is
         Vector3 direction = mousePos - transform.position;
-        Vector3 rotation = transform.position - mousePos;
         rb.velocity = new Vector2(direction.x, direction.y).normalized * speed;
     }
 
