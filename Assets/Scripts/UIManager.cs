@@ -21,11 +21,13 @@ public class UIManager : MonoBehaviour
     }
 
 
+    /*
     public void OnLevelCompleteButtonClicked()
     {
         SceneManager.LoadScene("BT_Prototype");
         Time.timeScale = 1;
     }
+    */
 
     public void OnQuitButtonClicked()
     {
